@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estética Oral Suba — Diseño de Sonrisa & Ortodoncia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6EF;
+    --ink:#16302B;
+    --teal:#2F6F62;
+    --teal-deep:#1E4A40;
+    --blush:#EAB6A0;
+    --gold:#C9A227;
+    --white:#FFFFFF;
+    --line: rgba(22,48,43,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--teal);
+  }
+  a{color:inherit; text-decoration:none;}
+  img{display:block; width:100%; height:100%; object-fit:cover;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+
+  /* --- Smile arc signature element --- */
+  .arc-divider{
+    width:100%;
+    height:40px;
+    display:block;
+    margin:0 auto;
+  }
+  .arc-divider svg{width:100%; height:100%; display:block;}
+
+  /* --- Header --- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,246,239,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px;
+    max-width:1180px; margin:0 auto;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-size:18px;
+    font-weight:600;
+    display:flex; align-items:center; gap:10px;
+    white-space:nowrap;
+  }
+  .logo svg{width:26px; height:16px;}
+  .nav-links{display:flex; gap:34px; font-size:14px; font-weight:500;}
+  .nav-links a{position:relative; padding-bottom:4px; transition:color .2s;}
+  .nav-links a:hover{color:var(--teal);}
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1px;
+    background:var(--teal); transition:width .25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--teal); color:var(--white);
+    padding:11px 22px; border-radius:100px;
+    font-size:13.5px; font-weight:600;
+    border:1px solid var(--teal);
+    cursor:pointer;
+    transition:transform .2s ease, background .2s ease;
+  }
+  .btn:hover{background:var(--teal-deep); transform:translateY(-1px);}
+  .btn-ghost{
+    background:transparent; color:var(--ink); border:1px solid var(--line);
+  }
+  .btn-ghost:hover{background:var(--ink); color:var(--cream); border-color:var(--ink);}
+
+  /* --- Hero --- */
+  .hero{
+    padding:88px 32px 60px;
+    max-width:1180px; margin:0 auto;
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:56px;
+    line-height:1.05;
+    margin:18px 0 22px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--teal);
+  }
+  .hero p.lede{
+    font-size:17px;
+    color:rgba(22,48,43,0.72);
+    max-width:460px;
+    margin-bottom:32px;
+  }
+  .hero-cta{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:36px;}
+  .hero-stats{
+    display:flex; gap:36px;
+    border-top:1px solid var(--line);
+    padding-top:22px;
+  }
+  .hero-stats div span{
+    display:block; font-family:'Fraunces', serif; font-size:26px; color:var(--teal-deep);
+  }
+  .hero-stats div small{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.06em;
+    color:rgba(22,48,43,0.6); text-transform:uppercase;
+  }
+  .hero-visual{
+    position:relative;
+    aspect-ratio:4/5;
+    border-radius:28px;
+    overflow:hidden;
+    background:var(--teal);
+  }
+  .hero-visual img{opacity:0.94;}
+  .hero-badge{
+    position:absolute; bottom:22px; left:22px; right:22px;
+    background:rgba(250,246,239,0.92);
+    backdrop-filter:blur(6px);
+    border-radius:16px;
+    padding:16px 18px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .hero-badge .dot{
+    width:38px; height:38px; border-radius:50%;
+    background:var(--blush); flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces',serif; color:var(--ink); font-size:15px;
+  }
+  .hero-badge p{font-size:13px; color:var(--ink); line-height:1.35;}
+  .hero-badge strong{display:block; font-size:13.5px; margin-bottom:1px;}
+
+  /* --- Section shell --- */
+  section{padding:86px 0;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    margin-bottom:44px; gap:24px; flex-wrap:wrap;
+  }
+  .section-head h2{font-size:36px;}
+  .section-head p{max-width:380px; font-size:14.5px; color:rgba(22,48,43,0.65);}
+
+  /* --- Services --- */
+  .services{background:var(--white); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--line);
+    border-left:1px solid var(--line);
+  }
+  .service-card{
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:30px 26px;
+    min-height:190px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    transition:background .25s ease;
+  }
+  .service-card:hover{background:var(--cream);}
+  .service-card .num{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--teal);
+  }
+  .service-card h3{font-size:19px; margin:14px 0 8px;}
+  .service-card p{font-size:13.5px; color:rgba(22,48,43,0.6);}
+
+  /* --- Gallery --- */
+  .gallery-tabs{display:flex; gap:10px; margin-bottom:8px;}
+  .gallery-group{margin-bottom:54px;}
+  .gallery-group:last-child{margin-bottom:0;}
+  .gallery-label{
+    display:flex; align-items:center; gap:14px;
+    margin-bottom:22px;
+  }
+  .gallery-label h3{font-size:22px;}
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr;
+    gap:16px;
+  }
+  .gallery-grid.reverse{grid-template-columns:1fr 1fr 1.3fr;}
+  .g-item{
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    aspect-ratio:4/5;
+    background:var(--blush);
+  }
+  .g-item.tall{aspect-ratio:4/5;}
+  .g-item .tag{
+    position:absolute; top:14px; left:14px;
+    background:rgba(250,246,239,0.92);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px; letter-spacing:.05em; text-transform:uppercase;
+    padding:6px 10px; border-radius:100px;
+    color:var(--ink);
+  }
+  .g-item img{transition:transform .5s ease;}
+  .g-item:hover img{transform:scale(1.06);}
+
+  /* --- Contact --- */
+  .contact{
+    background:var(--ink);
+    color:var(--cream);
+    border-radius:32px;
+    margin:0 32px;
+    padding:64px 56px;
+    max-width:1116px;
+    margin-left:auto; margin-right:auto;
+    position:relative;
+    overflow:hidden;
+  }
+  .contact::before{
+    content:'';
+    position:absolute; right:-80px; top:-80px;
+    width:280px; height:280px; border-radius:50%;
+    background:radial-gradient(circle, rgba(201,162,39,0.18), transparent 70%);
+  }
+  .contact-grid{
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:48px;
+    position:relative; z-index:1;
+  }
+  .contact h2{font-size:34px; color:var(--cream); margin-bottom:14px;}
+  .contact > .contact-grid > div:first-child p{
+    font-size:14.5px; color:rgba(250,246,239,0.68); max-width:340px; margin-bottom:28px;
+  }
+  .contact-list{display:flex; flex-direction:column; gap:16px;}
+  .contact-row{
+    display:flex; align-items:center; gap:14px;
+    padding:16px 18px;
+    background:rgba(250,246,239,0.06);
+    border:1px solid rgba(250,246,239,0.14);
+    border-radius:14px;
+  }
+  .contact-row .ic{
+    width:36px; height:36px; border-radius:50%;
+    background:var(--teal);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .contact-row .ic svg{width:17px; height:17px; stroke:var(--cream);}
+  .contact-row strong{display:block; font-size:14.5px;}
+  .contact-row span{font-size:12.5px; color:rgba(250,246,239,0.6); font-family:'IBM Plex Mono', monospace;}
+
+  .socials{display:flex; gap:12px; margin-top:28px;}
+  .social-btn{
+    width:42px; height:42px; border-radius:50%;
+    border:1px solid rgba(250,246,239,0.25);
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s ease, border-color .2s ease;
+  }
+  .social-btn:hover{background:var(--teal); border-color:var(--teal);}
+  .social-btn svg{width:18px; height:18px; stroke:var(--cream); fill:none;}
+
+  /* --- Footer --- */
+  footer{
+    padding:36px 32px 44px;
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:12.5px; color:rgba(22,48,43,0.55);
+    max-width:1180px; margin:0 auto;
+    flex-wrap:wrap; gap:12px;
+  }
+
+  @media(max-width:920px){
+    .hero{grid-template-columns:1fr; padding-top:60px;}
+    .hero h1{font-size:40px;}
+    .service-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-grid, .gallery-grid.reverse{grid-template-columns:1fr 1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    .contact{padding:44px 26px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <svg viewBox="0 0 26 16" fill="none"><path d="M1 2C4 12 10 15 13 15C16 15 22 12 25 2" stroke="#2F6F62" stroke-width="2" stroke-linecap="round"/></svg>
+      Estética Oral Suba
+    </div>
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Casos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a href="https://wa.me/573007641444" target="_blank" class="btn">Agendar cita</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <p class="eyebrow">Odontología · Ortodoncia · Diseño de sonrisa</p>
+      <h1>Cada sonrisa tiene<br>un <em>arco</em> perfecto.</h1>
+      <p class="lede">En ARCO combinamos ortodoncia de precisión y diseño de sonrisa personalizado para lograr resultados naturales, funcionales y hechos a tu medida.</p>
+      <div class="hero-cta">
+        <a href="https://wa.me/573007641444" target="_blank" class="btn">Agendar valoración</a>
+        <a href="#galeria" class="btn btn-ghost">Ver casos reales</a>
+      </div>
+      <div class="hero-stats">
+        <div><span>12+</span><small>Años de experiencia</small></div>
+        <div><span>1,800+</span><small>Sonrisas transformadas</small></div>
+        <div><span>4.9★</span><small>Valoración de pacientes</small></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="https://source.unsplash.com/800x1000/?dental,smile,dentist" alt="Paciente con sonrisa diseñada">
+      <div class="hero-badge">
+        <div class="dot">✓</div>
+        <p><strong>Diseño digital de sonrisa</strong>Simulamos tu resultado antes de iniciar el tratamiento.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="arc-divider wrap">
+  <svg viewBox="0 0 1180 40" preserveAspectRatio="none"><path d="M0 4C300 40 880 40 1180 4" stroke="#16302B" stroke-opacity="0.15" stroke-width="1"/></svg>
+</div>
+
+<!-- SERVICIOS -->
+<section class="services" id="servicios">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Qué hacemos</p>
+        <h2>Servicios</h2>
+      </div>
+      <p>Un plan de tratamiento distinto para cada arco dental — desde limpieza preventiva hasta rehabilitaciones completas.</p>
+    </div>
+  </div>
+  <div class="service-grid">
+    <div class="service-card">
+      <span class="num">01</span>
+      <div><h3>Ortodoncia</h3><p>Brackets metálicos, estéticos y alineadores invisibles para corregir la posición dental.</p></div>
+    </div>
+    <div class="service-card">
+      <span class="num">02</span>
+      <div><h3>Diseño de sonrisa</h3><p>Planeación digital estética que armoniza forma, color y proporción de tu sonrisa.</p></div>
+    </div>
+    <div class="service-card">
+      <span class="num">03</span>
+      <div><h3>Carillas de porcelana</h3><p>Láminas ultrafinas que corrigen color, forma y pequeñas imperfecciones.</p></div>
+    </div>
+    <div class="service-card">
+      <span class="num">04</span>
+      <div><h3>Blanqueamiento dental</h3><p>Aclaramiento profesional en consultorio o en casa, seguro y supervisado.</p></div>
+    </div>
+    <div class="service-card">
+      <span class="num">05</span>
+      <div><h3>Implantes dentales</h3><p>Reemplazo funcional y estético de piezas perdidas con tecnología de precisión.</p></div>
+    </div>
+    <div class="service-card">
+      <span class="num">06</span>
+      <div><h3>Limpieza y profilaxis</h3><p>Higiene profesional para prevenir caries, sarro y enfermedad periodontal.</p></div>
+    </div>
+    <div class="service-card">
+      <span class="num">07</span>
+      <div><h3>Odontología general</h3><p>Diagnóstico, resinas, endodoncia y cuidado integral para toda la familia.</p></div>
+    </div>
+    <div class="service-card">
+      <span class="num">08</span>
+      <div><h3>Rehabilitación oral</h3><p>Tratamientos integrales para restaurar función y estética en casos complejos.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section id="galeria">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Resultados reales</p>
+        <h2>Casos de ejemplo</h2>
+      </div>
+      <p>Una muestra de tratamientos de ortodoncia y diseño de sonrisa realizados en nuestra clínica.</p>
+    </div>
+
+    <div class="gallery-group">
+      <div class="gallery-label">
+        <p class="eyebrow">— Ortodoncia</p>
+        <h3>Alineación y corrección de mordida</h3>
+      </div>
+      <div class="gallery-grid">
+        <div class="g-item"><span class="tag">Caso 01</span><img src="https://source.unsplash.com/600x750/?braces,orthodontics" alt="Caso de ortodoncia con brackets"></div>
+        <div class="g-item"><span class="tag">Caso 02</span><img src="https://source.unsplash.com/500x650/?invisalign,aligners" alt="Caso de alineadores invisibles"></div>
+        <div class="g-item"><span class="tag">Caso 03</span><img src="https://source.unsplash.com/500x650/?dental,teeth,white" alt="Resultado final de ortodoncia"></div>
+      </div>
+    </div>
+
+    <div class="gallery-group">
+      <div class="gallery-label">
+        <p class="eyebrow">— Diseño de sonrisa</p>
+        <h3>Estética y armonía dental</h3>
+      </div>
+      <div class="gallery-grid reverse">
+        <div class="g-item"><span class="tag">Caso 04</span><img src="https://source.unsplash.com/500x650/?veneers,smile" alt="Caso de diseño de sonrisa con carillas"></div>
+        <div class="g-item"><span class="tag">Caso 05</span><img src="https://source.unsplash.com/500x650/?smile,cosmetic,dentistry" alt="Caso de estética dental"></div>
+        <div class="g-item"><span class="tag">Caso 06</span><img src="https://source.unsplash.com/600x750/?perfect,smile,portrait" alt="Sonrisa final tras diseño"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="arc-divider wrap">
+  <svg viewBox="0 0 1180 40" preserveAspectRatio="none"><path d="M0 4C300 40 880 40 1180 4" stroke="#16302B" stroke-opacity="0.15" stroke-width="1"/></svg>
+</div>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="contact">
+    <div class="contact-grid">
+      <div>
+        <p class="eyebrow" style="color:var(--blush)">Hablemos</p>
+        <h2>Agenda tu<br>valoración</h2>
+        <p>Escríbenos o llámanos y te ayudamos a encontrar el tratamiento ideal para tu sonrisa.</p>
+        <div class="socials">
+          <a class="social-btn" href="https://instagram.com/estaticaoraldentis" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a class="social-btn" href="https://wa.me/573007641444" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M3 21l1.6-4.8A8 8 0 1 1 8.8 19.4L3 21z"/><path d="M8.5 9.5c0 3.5 2.5 6 6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="contact-list">
+        <div class="contact-row">
+          <a href="tel:+576826199" style="display:flex; align-items:center; gap:14px; width:100%;">
+          <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path d="M3 5c0 9 7 16 16 16l3-4-6-3-2 2c-3-1.5-5-3.5-6.5-6.5l2-2-3-6L3 5z"/></svg></div>
+          <div><strong>Línea principal</strong><span>(601) 682 6199</span></div>
+          </a>
+        </div>
+        <div class="contact-row">
+          <a href="https://wa.me/573007641444" target="_blank" style="display:flex; align-items:center; gap:14px; width:100%;">
+          <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path d="M3 21l1.6-4.8A8 8 0 1 1 8.8 19.4L3 21z"/><path d="M8.5 9.5c0 3.5 2.5 6 6 6"/></svg></div>
+          <div><strong>WhatsApp</strong><span>+57 300 764 1444</span></div>
+          </a>
+        </div>
+        <div class="contact-row">
+          <a href="mailto:esteticaoral17@gmail.com" style="display:flex; align-items:center; gap:14px; width:100%;">
+          <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+          <div><strong>Correo</strong><span>esteticaoral17@gmail.com</span></div>
+          </a>
+        </div>
+        <div class="contact-row">
+          <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.8" fill="none"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.3"/></svg></div>
+          <div><strong>Ubicación</strong><span>Localidad de Suba, Calle 141 #103F-77</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Estética Oral Suba. Todos los derechos reservados.</span>
+  <span>Diseño de sonrisa · Ortodoncia · Odontología general</span>
+</footer>
+
+</body>
+</html>
